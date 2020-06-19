@@ -31,23 +31,24 @@ class EditCVTest (LiveServerTestCase):
 		self.browser.get(self.live_server_url)
 		
 
-		# He notices the CV page and naviagates to it, noticing that the new page title and header mention CVs
-		self.browser.find_element_by_link_text("Dan's CV").click()
+		# He notices the CV page and naviagates to it, noticing that the new page title mentions CVs
+		self.browser.find_element_by_link_text("CV").click()
 		time.sleep (1)
-		header_text = self.browser.find_element_by_tag_name('h1').text
+		header_text = self.browser.find_element_by_class_name ('page-title').text
 		self.assertIn ('CV', header_text)
 
-		# He tries to create a new entry
+		# He tries to create a new entry for the projects section
 		plus_button = self.browser.find_element_by_css_selector ('span.glyphicon-plus')
 		plus_button.click()
 		
 		
-		# He types "Website" into the title box
+		# He selects projects from the section selection list
 		time.sleep (1)
+		self.browser.find_element_by_xpath("//select[@id='id_section']/option[text()='Projects']").click()
+
+		# He types "Website" into the title box and "Made a website" into the text box 
 		titleBox = self.browser.find_element_by_id('id_title')
 		titleBox.send_keys ('Website')
-
-		# He types "Made a website" into the text box (he just recently made one)
 		textBox = self.browser.find_element_by_id('id_text')
 		textBox.send_keys ('Made a website')
 
@@ -77,8 +78,6 @@ class EditCVTest (LiveServerTestCase):
 		save_button = self.browser.find_element_by_class_name ('btn-default')
 		save_button.click()
 
-		time.sleep (1)
-
 			
 		#Back on the drafts list page, he can see that his entry has been updated with the extra text he entered
 		time.sleep(1)
@@ -94,23 +93,22 @@ class EditCVTest (LiveServerTestCase):
 
 		# After publishing, he returns to the main CV page where he can see his published entry
 		time.sleep (1)
-		self.browser.find_element_by_link_text("Dan's CV").click()
+		self.browser.find_element_by_link_text("CV").click()
 		time.sleep (1)
 		entry = self.browser.find_element_by_css_selector ('div.entry')
-		title_text = entry.find_element_by_tag_name('h2').text
 		text_text = entry.find_element_by_tag_name('p').text
-		self.assertIn ('Website', title_text)
 		self.assertIn ('Made a website using django', text_text)
 
 
-		# He decides to add another entry, so presses the plus button, types in the details, save it, and submits it like last time
+		# He decides to add another entry, this time to the education section, so presses the plus button, selects education from the section list, types in the details, save it, and submits it like last time
 		plus_button = self.browser.find_element_by_css_selector ('span.glyphicon-plus')
 		plus_button.click()
 		time.sleep (1)
+		self.browser.find_element_by_xpath("//select[@id='id_section']/option[text()='Education']").click()
 		titleBox = self.browser.find_element_by_id('id_title')
-		titleBox.send_keys ('Testing')
+		titleBox.send_keys ('Nursery')
 		textBox = self.browser.find_element_by_id('id_text')
-		textBox.send_keys ('Tested my website')
+		textBox.send_keys ('I went to nursery')
 		save_button = self.browser.find_element_by_class_name ('btn-default')
 		save_button.click()
 		time.sleep (1)
@@ -120,15 +118,18 @@ class EditCVTest (LiveServerTestCase):
 		
 		# After publishing, he returns to the main CV page where he can see both the first entry and his new second published entry
 		time.sleep (1)
-		self.browser.find_element_by_link_text("Dan's CV").click()
+		self.browser.find_element_by_link_text("CV").click()
 		time.sleep (1)
 		entries = self.browser.find_elements_by_css_selector ('div.entry')
-		self.assertIn ('Testing', entries[0].find_element_by_tag_name('h2').text)
-		self.assertIn ('Website', entries[2].find_element_by_tag_name('h2').text)
+		self.assertIn ('nursery', entries[0].find_element_by_tag_name('p').text)
+		self.assertIn ('website', entries[1].find_element_by_tag_name('p').text)
 
 
-		#He decides that he doesn't like his new entry, and wants to delete, to he clicks the entry and then clicks the delete button
-		self.browser.find_element_by_link_text("Testing").click()
+		#He decides that he doesn't like his new entry, and wants to delete, so he goes to the edit-list, clicks the entry and then clicks the delete button
+		edit_list_button = self.browser.find_element_by_css_selector ('span.glyphicon-edit')
+		edit_list_button.click()
+		time.sleep (1)
+		self.browser.find_element_by_link_text("Nursery").click()
 		time.sleep (1)
 		
 		edit_button = self.browser.find_element_by_css_selector ('span.glyphicon-remove')
@@ -138,8 +139,8 @@ class EditCVTest (LiveServerTestCase):
 		# Returning to the main list page, he can see that the only entry still there is his orignal entry
 		time.sleep (1)
 		entries = self.browser.find_elements_by_css_selector ('div.entry')
-		self.assertNotIn ('Testing', entries[0].find_element_by_tag_name('h2').text)
-		self.assertIn ('Website', entries[0].find_element_by_tag_name('h2').text)
+		self.assertNotIn ('nursery', entries[0].find_element_by_tag_name('p').text)
+		self.assertIn ('website', entries[0].find_element_by_tag_name('p').text)
 		
 
 
