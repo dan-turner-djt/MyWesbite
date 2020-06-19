@@ -4,9 +4,9 @@
 {% block page %}
 
 	<div class="page-title">
-		<h1>Dan's Blog</h1>
+		<h1>Dan's CV</h1>
 	</div>
-	
+
 	<div class="content container">
 		<div class="row">
 			<div class="col-md-8">
@@ -20,11 +20,11 @@
 {% endblock %}
 
 
+
 {% block buttons %}
 	
-	<a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-	<a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
+	<a href="{% url 'entry_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+	<a href="{% url 'entry_edit_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
 
 
 {% endblock %}
-

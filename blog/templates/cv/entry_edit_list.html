@@ -1,0 +1,11 @@
+{% extends 'cv/base.html' %}
+
+{% block content %}
+    {% for entry in entries %}
+        <div class="entry">
+            <p class="date">created: {{ entry.created_date|date:'d-m-Y' }}</p>
+            <h1><a href="{% url 'entry_detail' pk=entry.pk %}">{{ entry.title }}</a></h1>
+            <p>{{ entry.text|truncatechars:200 }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
