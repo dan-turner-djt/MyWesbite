@@ -3,8 +3,8 @@
 .page-header 
 {
 	background-color: #C25100;
-	margin-top: 0;
-	padding: 20px 20px 20px 40px;
+	margin-top: -10;
+	padding: 20px 20px 30px 190px;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active 
@@ -14,9 +14,16 @@
 	text-decoration: none;
 }
 
+
+.page-title
+{
+	margin-bottom: 50px;
+	margin-left: 190px;
+}
+
 .content 
 {
-	margin-left: 40px;
+	margin-left: 180px;
 }
 
 h1, h2, h3, h4 
@@ -56,3 +63,35 @@ h1, h2, h3, h4
 {
 	color: #000000;
 }
+
+
+
+/* The sidebar menu */
+.sidenav 
+{
+  margin-top: 0;
+  height: 100%;  /* Full-height: remove this if you want "auto" height */
+  width: 140px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+ 
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #C25100;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 125px;
+}
+
+/* The navigation menu links */
+.sidenav h1 a {
+  padding: 6px 8px 6px 16px;
+  font-size: 25px;
+  color: #ffffff;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav h1 a:hover {
+  color: #f1f1f1;
+}
+
+
