@@ -24,11 +24,6 @@
 		<h2>Education</h2>
 		{% for entry in educationEntries %}
 			<div class="entry">
-				<h3>{{ entry.title }}</h3>
-				<div class="entry_info">
-					<p2>{{ entry.start_date }} - {{ entry.end_date }}</p2>
-					<p2>{{ entry.location }}</p2>
-				</div>
 				<p>{{ entry.text|linebreaksbr }}</p>
 			</div>
 		{% endfor %}
@@ -38,11 +33,6 @@
 		<h2>Work Experience</h2>
 		{% for entry in workExperienceEntries %}
 			<div class="entry">
-				<h3>{{ entry.title }}</h3>
-				<div class="entry_info">
-					<p2>{{ entry.start_date }} - {{ entry.end_date }}</p2>
-					<p2>{{ entry.location }}</p2>
-				</div>
 				<p>{{ entry.text|linebreaksbr }}</p>
 			</div>
 		{% endfor %}
@@ -52,7 +42,6 @@
 		<h2>Projects</h2>
 		{% for entry in projectsEntries %}
 			<div class="entry">
-				<h2>{{ entry.title }}</h2>
 				<p>{{ entry.text|linebreaksbr }}</p>
 			</div>
 		{% endfor %}
