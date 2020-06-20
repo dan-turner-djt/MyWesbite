@@ -1,29 +1,79 @@
+html
+{
+	height: 100%;
+}
 
+
+body
+{
+	height: 100%;
+	background-color: #899dc9;
+}
 
 .page-header 
-{
-	background-color: #C25100;
-	margin-top: -10;
-	padding: 20px 20px 30px 190px;
+{		
+	z-index: 1;
+	position: relative;
+	margin-top: 0;
+	width: 100%;
+	background-color: #1a4299;
+	padding: 20px 0px 40px 0px;
+	border-bottom: none;
+	text-align: center;
+	
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active 
 {
+	
 	color: #ffffff;
-	font-size: 36pt;
-	text-decoration: none;
+	font-size: 40pt;
+}
+
+
+.page-footer
+{
+	z-index: 0.2;
+	position: relative;
+	height: 50px;
+	width: 100%;
+	background-color: #1a3b82;
+	margin-top: -10;
+	padding: 20px 20px 30px 190px;
+}
+
+.page-footer p
+{
+	float: right;
+	color: #ffffff;
+	font-size: 10pt;
 }
 
 
 .page-title
 {
+	text-align: center;
 	margin-bottom: 50px;
-	margin-left: 190px;
+}
+
+
+.page-content
+{
+	margin-left: auto;
+    	margin-right: auto;
+	margin-top: 25px;
+	margin-bottom: 60px;
+	min-height: 100%;
+	width: 60%;
+	padding: 10px 10px 10px 10px;
+	border-radius: 25px;
+	background-color: #FFFFFF;
+	
 }
 
 .content 
 {
-	margin-left: 180px;
+	
 }
 
 h1, h2, h3, h4 
@@ -46,12 +96,22 @@ h1, h2, h3, h4
 	width: 100%;
 }
 
+.top-menu-login-text, .top-menu-login-text:hover, .top-menu-login-text:visited 
+{
+	color: #ffffff;
+	float: right;
+	font-size: 26pt;
+	margin-right: 20px;
+	margin-top: -25px;
+}
+
 .top-menu, .top-menu:hover, .top-menu:visited 
 {
 	color: #ffffff;
 	float: right;
 	font-size: 26pt;
 	margin-right: 20px;
+	margin-top: -20px;
 }
 
 .post 
@@ -66,32 +126,30 @@ h1, h2, h3, h4
 
 
 
-/* The sidebar menu */
+
 .sidenav 
 {
-  margin-top: 0;
-  height: 100%;  /* Full-height: remove this if you want "auto" height */
-  width: 140px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
- 
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: #C25100;
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 125px;
+	z-index: 0.8;
+	margin-top: 0;
+	height: 100%;  
+	width: 130px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #1a4299;
+	opacity: 0.8;
+	overflow-x: hidden; 
+	padding-top: 180px;
 }
 
-/* The navigation menu links */
-.sidenav h1 a {
-  padding: 6px 8px 6px 16px;
-  font-size: 25px;
-  color: #ffffff;
-  display: block;
+
+.sidenav h1 a 
+{
+	padding: 6px 8px 6px 16px;
+	font-size: 30px;
+	color: #ffffff;
+	display: block;
 }
 
-/* When you mouse over the navigation links, change their color */
-.sidenav h1 a:hover {
-  color: #f1f1f1;
-}
 
 
