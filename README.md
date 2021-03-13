@@ -1,3 +1,3 @@
 # MyWesbite
 
-Created using Django and Selenium.
+Created using Python, Django and Selenium.
